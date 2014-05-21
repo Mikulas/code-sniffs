@@ -3,8 +3,8 @@
 	<description>Clevis coding standard</description>
 	<rule ref="Generic.Classes.DuplicateClassName" />
 	<rule ref="Generic.CodeAnalysis.EmptyStatement">
-        <exclude name="Generic.CodeAnalysis.EmptyStatement" />
-    </rule>
+		<exclude name="Generic.CodeAnalysis.EmptyStatement" />
+	</rule>
 	<rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop" />
 	<rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall" />
 	<rule ref="Generic.CodeAnalysis.JumbledIncrementer" />
@@ -12,9 +12,9 @@
 	<rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier" />
 	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod" />
 	<rule ref="Generic.Commenting.Todo.TaskFound">
-        <message>Unresolved todo comment: %s</message>
-        <severity>2</severity>
-    </rule>
+		<message>Unresolved todo comment: %s</message>
+		<severity>2</severity>
+	</rule>
 	<rule ref="Generic.Files.ByteOrderMark" />
 	<rule ref="Generic.Files.EndFileNewline" />
 	<rule ref="Generic.Files.InlineHTML" />
@@ -33,8 +33,8 @@
 	<rule ref="Generic.PHP.ForbiddenFunctions" />
 	<rule ref="Generic.PHP.NoSilencedErrors" />
 	<rule ref="PSR1.Classes.ClassDeclaration">
-        <exclude name="PSR1.Classes.ClassDeclaration.MultipleClasses" />
-    </rule>
+		<exclude name="PSR1.Classes.ClassDeclaration.MultipleClasses" />
+	</rule>
 	<rule ref="PSR1.Files.SideEffects" />
 	<rule ref="Generic.Strings.UnnecessaryStringConcat" />
 	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
