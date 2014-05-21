@@ -66,8 +66,14 @@ class cs_Sniffs_Newlines_UseNewlinesSniff implements PHP_CodeSniffer_Sniff
 			return TRUE;
 		}
 
-		// trait
+		// use trait in class
 		if ($phpcsFile->hasCondition($stackPtr, T_CLASS) === TRUE)
+		{
+			return TRUE;
+		}
+
+		// use trait in trait
+		if ($phpcsFile->hasCondition($stackPtr, T_TRAIT) === TRUE)
 		{
 			return TRUE;
 		}
