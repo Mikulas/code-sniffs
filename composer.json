@@ -1,0 +1,15 @@
+{
+    "name": "mikulas/code-sniffs",
+    "description": "Code sniffer rules for Clevis coding standard",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mikulas Dite",
+            "email": "mikulas@dite.pro"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4.0"
+    }
+}
