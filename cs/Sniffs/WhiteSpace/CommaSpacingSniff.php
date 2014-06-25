@@ -33,8 +33,13 @@ class cs_Sniffs_WhiteSpace_CommaSpacingSniff implements PHP_CodeSniffer_Sniff
 			if ($tokens[$next]['line'] === $tokens[$stackPtr]['line'])
 			{
 				$error = 'Missing space after comma';
-				$phpcsFile->addError($error, $next);
+				$phpcsFile->addError($error, $next, 'NoSpaceAfter');
 			}
+		}
+		else if ($tokens[$stackPtr + 1]['code'] === T_WHITESPACE && $tokens[$stackPtr + 1]['content'] !== ' ')
+		{
+			$error = 'Too many spaces after comma';
+			$phpcsFile->addError($error, $next, 'NotSingleSpaceAfter');
 		}
 
 		$previous = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), NULL, TRUE);
@@ -42,7 +47,7 @@ class cs_Sniffs_WhiteSpace_CommaSpacingSniff implements PHP_CodeSniffer_Sniff
 		if ($tokens[$previous]['code'] !== T_WHITESPACE && ($previous !== $stackPtr - 1))
 		{
 			$error = 'Space before comma, expected none, though';
-			$phpcsFile->addError($error, $next);
+			$phpcsFile->addError($error, $next, 'SpaceBefore');
 		}
 	}
 
