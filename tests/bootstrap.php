@@ -24,6 +24,11 @@ function runPhpcs($sniff, $content)
 	$raw = implode($output);
 
 	$data = json_decode($raw);
+	if (!$data)
+	{
+		echo "$data\n";
+		exit(1);
+	}
 
 	$messages = [];
 	$rules = [];
