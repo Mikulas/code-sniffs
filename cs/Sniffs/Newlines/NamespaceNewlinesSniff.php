@@ -32,10 +32,12 @@ class cs_Sniffs_Newlines_NamespaceNewlinesSniff implements PHP_CodeSniffer_Sniff
 		}
 		else
 		{
-			$nextClass = $phpcsFile->findNext(T_CLASS, ($stackPtr + 1), NULL, FALSE);
-			$nextTrait = $phpcsFile->findNext(T_TRAIT, ($stackPtr + 1), NULL, FALSE);
-			$nextDoc = $phpcsFile->findNext(T_DOC_COMMENT, ($stackPtr + 1), NULL, FALSE);
-			$next = min($nextDoc ?: 1e9, $nextClass ?: 1e9, $nextTrait ?: 1e9);
+			$pos = [];
+			foreach ([T_CLASS, T_TRAIT, T_INTERFACE, T_DOC_COMMENT] as $t)
+			{
+				$pos[] = $phpcsFile->findNext($t, ($stackPtr + 1), NULL, FALSE) ?: 1e9;
+			}
+			$next = min($pos);
 
 			if ($next && $tokens[$next]['line'] !== 6)
 			{
