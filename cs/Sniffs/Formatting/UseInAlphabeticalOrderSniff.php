@@ -87,6 +87,7 @@ class cs_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_CodeSniffe
 		$this->_processed[$phpcsFile->getFilename()] = TRUE;
 
 		$ordered = TRUE;
+		$failedIndex = NULL;
 		foreach ($uses as $scope => $used)
 		{
 			$defined = $sorted = array_keys($used);
@@ -102,6 +103,10 @@ class cs_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_CodeSniffe
 			{
 				if ($name !== $sorted[$i])
 				{
+					if ($failedIndex === NULL)
+					{
+						$failedIndex = $used[$name];
+					}
 					$ordered = FALSE;
 				}
 			}
@@ -109,7 +114,7 @@ class cs_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_CodeSniffe
 		if (!$ordered)
 		{
 			$error = 'Usings must be in alphabetical order';
-			$phpcsFile->addError($error, $stackPtr, 'UseInAlphabeticalOrder', []);
+			$phpcsFile->addError($error, $failedIndex, 'UseInAlphabeticalOrder', []);
 		}
 	}
 

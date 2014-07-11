@@ -8,13 +8,14 @@ $sniff = 'cs.Formatting.UseInAlphabeticalOrder';
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php
-use C;
 use A;
 use B;
+use X; # line 4
+use D;
 CONTENT
 );
 Assert::same(['UseInAlphabeticalOrder'], $cs->rules);
-Assert::same(3, $cs->messages[0]->line);
+Assert::same(4, $cs->messages[0]->line);
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php
