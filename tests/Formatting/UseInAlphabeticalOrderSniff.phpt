@@ -14,6 +14,7 @@ use B;
 CONTENT
 );
 Assert::same(['UseInAlphabeticalOrder'], $cs->rules);
+Assert::same(3, $cs->messages[0]->line);
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php
