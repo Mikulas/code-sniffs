@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Ensures control structures' blocks start on new line:
+ * Ensures all annotations are multiline,
+ * with the exception of '@var' inside a method.
  *
  * Not allowed:
  * <code>
