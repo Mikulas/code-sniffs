@@ -44,6 +44,10 @@ Allowed:
 /** @property-read NULL|Foo $bar */
 ```
 
+*SeparateInjectSniff*
+
+`@inject` must not be on same line as `@var`.
+
 ControlStructures
 -----------------
 
