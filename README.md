@@ -1,6 +1,37 @@
 Custom CodeSniffer rules
 ========================
 
+Annotations
+-----------
+
+*ForceMultipleLinesSniff*
+
+Warn if phpdoc is single line (unless its on variable)
+
+Disallowed:
+```php
+/** @property-read $bar */
+class Foo
+{
+	/** @var Bar */
+	public $bar;
+}
+```
+
+Allowed:
+```php
+/** 
+ * @property-read $bar
+ */
+class Foo
+{
+	/**
+	 * @var Bar
+	 */
+	public $bar;
+}
+```
+
 ControlStructures
 -----------------
 
@@ -114,3 +145,15 @@ WhiteSpace
 *CommaSpacingSniff*
 
 Ensures there is no whitespaces before and exactly one space after each comma.
+
+*ListSpacingSniff*
+
+Disallows:
+```php
+list ($a, $b);
+```
+
+Allows
+```php
+list($a, $b);
+```
