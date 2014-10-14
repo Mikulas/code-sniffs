@@ -8,16 +8,16 @@ $sniff = 'cs.WhiteSpace.ListSpacing';
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php
-list (\$a) = [];
+list (\$a) = array();
 CONTENT
 );
 
-Assert::same(['SpaceAfter'], $cs->rules);
+Assert::same(array('SpaceAfter'), $cs->rules);
 
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php
-list(\$a) = [];
+list(\$a) = array();
 CONTENT
 );
 

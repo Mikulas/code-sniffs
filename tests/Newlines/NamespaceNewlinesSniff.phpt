@@ -13,7 +13,7 @@ class Foo {}
 CONTENT
 );
 
-Assert::same(['NewlineAbove', 'NewlineBelowWithoutUsings'], $cs->rules);
+Assert::same(array('NewlineAbove', 'NewlineBelowWithoutUsings'), $cs->rules);
 
 
 $cs = runPhpcs($sniff, <<<CONTENT

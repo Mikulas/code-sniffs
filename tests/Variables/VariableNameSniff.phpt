@@ -20,4 +20,4 @@ class Foo
 CONTENT
 );
 
-Assert::same(['NotCamelCaps', 'NotCamelCaps', 'MemberVarNotCamelCaps', 'MemberVarNotCamelCaps'], $cs->rules);
+Assert::same(array('NotCamelCaps', 'NotCamelCaps', 'MemberVarNotCamelCaps', 'MemberVarNotCamelCaps'), $cs->rules);

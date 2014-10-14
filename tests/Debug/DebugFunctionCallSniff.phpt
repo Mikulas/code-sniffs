@@ -11,7 +11,7 @@ $cs = runPhpcs($sniff, <<<CONTENT
 dump('foo');
 CONTENT
 );
-Assert::same(['Found'], $cs->rules);
+Assert::same(array('Found'), $cs->rules);
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php

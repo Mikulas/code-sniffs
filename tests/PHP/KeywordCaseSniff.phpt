@@ -12,7 +12,7 @@ $cs = runPhpcs($sniff, <<<CONTENT
 CONTENT
 );
 
-Assert::same(['Found', 'Found', 'Found'], $cs->rules);
+Assert::same(array('Found', 'Found', 'Found'), $cs->rules);
 
 
 $cs = runPhpcs($sniff, <<<CONTENT
@@ -22,4 +22,4 @@ While (1)
 CONTENT
 );
 
-Assert::same(['Found', 'Found'], $cs->rules);
+Assert::same(array('Found', 'Found'), $cs->rules);

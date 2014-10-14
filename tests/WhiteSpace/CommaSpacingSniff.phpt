@@ -8,17 +8,17 @@ $sniff = 'cs.WhiteSpace.CommaSpacing';
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php
-list(\$a ,\$b) = [];
+list(\$a ,\$b) = array();
 CONTENT
 );
 
-Assert::same(['NoSpaceAfter', 'SpaceBefore'], $cs->rules);
+Assert::same(array('NoSpaceAfter', 'SpaceBefore'), $cs->rules);
 
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php
-list(\$a,  \$b) = [];
+list(\$a,  \$b) = array();
 CONTENT
 );
 
-Assert::same(['NotSingleSpaceAfter'], $cs->rules);
+Assert::same(array('NotSingleSpaceAfter'), $cs->rules);
