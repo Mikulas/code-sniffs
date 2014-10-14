@@ -22,7 +22,7 @@ class cs_Sniffs_Annotations_NullFirstSniff implements PHP_CodeSniffer_Sniff
 
 	public function register()
 	{
-		return [T_DOC_COMMENT];
+		return array(T_DOC_COMMENT);
 	}
 
 

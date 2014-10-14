@@ -7,11 +7,11 @@ class cs_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_CodeSniffe
 {
 
 	/** @var array */
-	protected $_processed = [];
+	protected $_processed = array();
 
 	public function register()
 	{
-		return [T_USE];
+		return array(T_USE);
 	}
 
 	/**
@@ -29,7 +29,7 @@ class cs_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_CodeSniffe
 		$tokens = $phpcsFile->getTokens();
 
 		$isClosure = $phpcsFile->findPrevious(
-			[T_CLOSURE],
+			array(T_CLOSURE),
 			($stackPtr - 1),
 			NULL,
 			FALSE,
@@ -42,21 +42,21 @@ class cs_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_CodeSniffe
 		}
 
 		// Only one USE declaration allowed per statement.
-		$next = $phpcsFile->findNext([T_COMMA, T_SEMICOLON], ($stackPtr + 1));
+		$next = $phpcsFile->findNext(array(T_COMMA, T_SEMICOLON), ($stackPtr + 1));
 		if ($tokens[$next]['code'] === T_COMMA)
 		{
 			$error = 'There must be one USE keyword per declaration';
 			$phpcsFile->addError($error, $stackPtr, 'MultipleDeclarations');
 		}
 
-		$uses = [];
+		$uses = array();
 
 		$next = $stackPtr;
 		while (TRUE)
 		{
 			$content = '';
 
-			$end = $phpcsFile->findNext([T_SEMICOLON, T_OPEN_CURLY_BRACKET], $next);
+			$end = $phpcsFile->findNext(array(T_SEMICOLON, T_OPEN_CURLY_BRACKET), $next);
 			$useTokens = array_slice($tokens, $next, $end - $next, TRUE);
 			$index = NULL;
 			foreach ($useTokens as $index => $token)
@@ -114,7 +114,7 @@ class cs_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_CodeSniffe
 		if (!$ordered)
 		{
 			$error = 'Usings must be in alphabetical order';
-			$phpcsFile->addError($error, $failedIndex, 'UseInAlphabeticalOrder', []);
+			$phpcsFile->addError($error, $failedIndex, 'UseInAlphabeticalOrder', array());
 		}
 	}
 

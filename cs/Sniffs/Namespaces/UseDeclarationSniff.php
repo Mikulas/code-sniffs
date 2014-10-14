@@ -18,7 +18,7 @@ class cs_Sniffs_Namespaces_UseDeclarationSniff extends PSR2_Sniffs_Namespaces_Us
 		$tokens = $phpcsFile->getTokens();
 
 		// Only one USE declaration allowed per statement.
-		$next = $phpcsFile->findNext([T_COMMA, T_SEMICOLON], ($stackPtr + 1));
+		$next = $phpcsFile->findNext(array(T_COMMA, T_SEMICOLON), ($stackPtr + 1));
 		if ($tokens[$next]['code'] === T_COMMA)
 		{
 			$error = 'There must be one USE keyword per declaration';
@@ -64,7 +64,7 @@ class cs_Sniffs_Namespaces_UseDeclarationSniff extends PSR2_Sniffs_Namespaces_Us
 			}
 
 			$error = 'There must be two blank lines after the last USE statement; %s found;';
-			$data  = [$diff];
+			$data  = array($diff);
 			$phpcsFile->addError($error, $stackPtr, 'SpaceAfterLastUse', $data);
 		}
 

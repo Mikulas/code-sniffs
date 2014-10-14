@@ -14,7 +14,7 @@ class cs_Sniffs_Debug_DebugFunctionCallSniff extends Generic_Sniffs_PHP_Forbidde
 	 *
 	 * @var array(string => string|NULL)
 	 */
-	protected $forbiddenFunctions = [
+	protected $forbiddenFunctions = array(
 		'd' => NULL,
 		'dd' => NULL,
 		'de' => NULL,
@@ -22,7 +22,7 @@ class cs_Sniffs_Debug_DebugFunctionCallSniff extends Generic_Sniffs_PHP_Forbidde
 		'var_dump' => NULL,
 		'error_log' => NULL,
 		'print_r' => NULL,
-	];
+	);
 
 	/**
 	 * If true, an error will be thrown; otherwise a warning.

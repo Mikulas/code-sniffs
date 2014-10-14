@@ -13,7 +13,7 @@ class cs_Sniffs_WhiteSpace_ListSpacingSniff implements PHP_CodeSniffer_Sniff
 	 */
 	public function register()
 	{
-		return [T_LIST];
+		return array(T_LIST);
 	}
 
 	/**

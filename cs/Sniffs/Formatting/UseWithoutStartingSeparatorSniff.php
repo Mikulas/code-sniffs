@@ -16,7 +16,7 @@ class cs_Sniffs_Formatting_UseWithoutStartingSeparatorSniff implements PHP_CodeS
 
 	public function register()
 	{
-		return [T_USE];
+		return array(T_USE);
 	}
 
 	/**
@@ -29,7 +29,7 @@ class cs_Sniffs_Formatting_UseWithoutStartingSeparatorSniff implements PHP_CodeS
 		$tokens = $phpcsFile->getTokens();
 
 		$isClosure = $phpcsFile->findPrevious(
-			[T_CLOSURE],
+			array(T_CLOSURE),
 			($stackPtr - 1),
 			NULL,
 			FALSE,
@@ -44,7 +44,7 @@ class cs_Sniffs_Formatting_UseWithoutStartingSeparatorSniff implements PHP_CodeS
 		if ($tokens[$stackPtr + 1]['code'] === T_WHITESPACE && $tokens[$stackPtr + 2]['code'] === T_NS_SEPARATOR)
 		{
 			$error = 'Usings must not start with opening ns separator';
-			$phpcsFile->addError($error, $stackPtr, 'NotAllowed', []);
+			$phpcsFile->addError($error, $stackPtr, 'NotAllowed', array());
 		}
 	}
 
