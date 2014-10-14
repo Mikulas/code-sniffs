@@ -23,7 +23,7 @@ class cs_Sniffs_ControlStructures_SeparateBracketsSniff implements PHP_CodeSniff
 
 	public function register()
 	{
-		return [T_IF, T_ELSE, T_ELSEIF, T_FOREACH, T_FOR];
+		return array(T_IF, T_ELSE, T_ELSEIF, T_FOREACH, T_FOR);
 	}
 
 

@@ -8,7 +8,7 @@ class cs_Sniffs_MVC_AbstractOrFinalPresenterSniff implements PHP_CodeSniffer_Sni
 
 	public function register()
 	{
-		return [T_CLASS];
+		return array(T_CLASS);
 	}
 
 	/**
@@ -22,14 +22,14 @@ class cs_Sniffs_MVC_AbstractOrFinalPresenterSniff implements PHP_CodeSniffer_Sni
 
 		$namePtr = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), NULL, TRUE);
 		$class = $tokens[$namePtr]['content'];
-		$match = [];
+		$match = array();
 		if (!preg_match('~^(?P<name>(?P<base>Base)?.*?)Presenter$~', $class, $match))
 		{
 			// not a presenter class
 			return;
 		}
 
-		$modifiers = [];
+		$modifiers = array();
 		$offset = 1;
 		while (TRUE)
 		{

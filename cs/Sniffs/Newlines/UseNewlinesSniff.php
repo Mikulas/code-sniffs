@@ -5,7 +5,7 @@ class cs_Sniffs_Newlines_UseNewlinesSniff implements PHP_CodeSniffer_Sniff
 
 	public function register()
 	{
-		return [T_USE];
+		return array(T_USE);
 	}
 
 	/**

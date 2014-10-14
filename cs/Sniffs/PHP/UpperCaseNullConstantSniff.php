@@ -11,11 +11,11 @@ class cs_Sniffs_PHP_UpperCaseNullConstantSniff implements PHP_CodeSniffer_Sniff
 	 *
 	 * @var string[]
 	 */
-	public $supportedTokenizers = ['PHP', 'JS'];
+	public $supportedTokenizers = array('PHP', 'JS');
 
 	public function register()
 	{
-		return [T_NULL];
+		return array(T_NULL);
 	}
 
 	/**

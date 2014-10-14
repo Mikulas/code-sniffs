@@ -8,7 +8,7 @@ class cs_Sniffs_PHP_KeywordCaseSniff implements PHP_CodeSniffer_Sniff
 
 	public function register()
 	{
-		return [
+		return array(
 			T_HALT_COMPILER,
 			T_ABSTRACT,
 			T_ARRAY,
@@ -74,7 +74,7 @@ class cs_Sniffs_PHP_KeywordCaseSniff implements PHP_CodeSniffer_Sniff
 			T_USE,
 			T_VAR,
 			T_WHILE,
-		];
+		);
 
 	}
 
@@ -88,14 +88,14 @@ class cs_Sniffs_PHP_KeywordCaseSniff implements PHP_CodeSniffer_Sniff
 		$tokens  = $phpcsFile->getTokens();
 		$keyword = $tokens[$stackPtr]['content'];
 
-		$logical = in_array($tokens[$stackPtr]['code'], [T_LOGICAL_AND, T_LOGICAL_OR, T_LOGICAL_XOR]);
+		$logical = in_array($tokens[$stackPtr]['code'], array(T_LOGICAL_AND, T_LOGICAL_OR, T_LOGICAL_XOR));
 
 		if ($logical)
 		{
 			if (strtoupper($keyword) !== $keyword)
 			{
 				$error = 'Logical PHP keywords must be uppercase; expected "%s" but found "%s"';
-				$data = [strtoupper($keyword), $keyword];
+				$data = array(strtoupper($keyword), $keyword);
 				$phpcsFile->addError($error, $stackPtr, 'Found', $data);
 			}
 		}
@@ -104,7 +104,7 @@ class cs_Sniffs_PHP_KeywordCaseSniff implements PHP_CodeSniffer_Sniff
 			if (strtolower($keyword) !== $keyword)
 			{
 				$error = 'Non-logical PHP keywords must be lowercase; expected "%s" but found "%s"';
-				$data  = [strtolower($keyword), $keyword];
+				$data  = array(strtolower($keyword), $keyword);
 				$phpcsFile->addError($error, $stackPtr, 'Found', $data);
 			}
 		}

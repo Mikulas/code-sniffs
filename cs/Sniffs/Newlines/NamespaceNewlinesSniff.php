@@ -5,7 +5,7 @@ class cs_Sniffs_Newlines_NamespaceNewlinesSniff implements PHP_CodeSniffer_Sniff
 
 	public function register()
 	{
-		return [T_NAMESPACE];
+		return array(T_NAMESPACE);
 	}
 
 	/**
@@ -32,8 +32,8 @@ class cs_Sniffs_Newlines_NamespaceNewlinesSniff implements PHP_CodeSniffer_Sniff
 		}
 		else
 		{
-			$pos = [];
-			foreach ([T_CLASS, T_TRAIT, T_INTERFACE, T_DOC_COMMENT] as $t)
+			$pos = array();
+			foreach (array(T_CLASS, T_TRAIT, T_INTERFACE, T_DOC_COMMENT) as $t)
 			{
 				$pos[] = $phpcsFile->findNext($t, ($stackPtr + 1), NULL, FALSE) ?: 1e9;
 			}

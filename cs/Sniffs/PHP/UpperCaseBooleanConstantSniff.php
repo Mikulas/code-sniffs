@@ -11,14 +11,14 @@ class cs_Sniffs_PHP_UpperCaseBooleanConstantSniff implements PHP_CodeSniffer_Sni
 	 *
 	 * @var string[]
 	 */
-	public $supportedTokenizers = ['PHP', 'JS'];
+	public $supportedTokenizers = array('PHP', 'JS');
 
 	public function register()
 	{
-		return [
+		return array(
 			T_TRUE,
 			T_FALSE,
-		];
+		);
 	}
 
 	/**

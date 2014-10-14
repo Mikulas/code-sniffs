@@ -8,7 +8,7 @@ class cs_Sniffs_Debug_ClassDebuggerCallSniff implements PHP_CodeSniffer_Sniff
 
 	public function register()
 	{
-		return [T_DOUBLE_COLON];
+		return array(T_DOUBLE_COLON);
 	}
 
 	/**

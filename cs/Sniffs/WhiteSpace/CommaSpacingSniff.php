@@ -13,7 +13,7 @@ class cs_Sniffs_WhiteSpace_CommaSpacingSniff implements PHP_CodeSniffer_Sniff
 	 */
 	public function register()
 	{
-		return [T_COMMA];
+		return array(T_COMMA);
 	}
 
 	/**
