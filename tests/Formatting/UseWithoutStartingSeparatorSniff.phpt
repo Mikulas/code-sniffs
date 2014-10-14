@@ -11,7 +11,7 @@ $cs = runPhpcs($sniff, <<<CONTENT
 use \A;
 CONTENT
 );
-Assert::same(['NotAllowed'], $cs->rules);
+Assert::same(array('NotAllowed'), $cs->rules);
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php

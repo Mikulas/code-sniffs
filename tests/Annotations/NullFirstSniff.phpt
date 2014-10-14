@@ -17,7 +17,7 @@ class Bar
 }
 CONTENT
 );
-Assert::same(['NullNotFirst'], $cs->rules);
+Assert::same(array('NullNotFirst'), $cs->rules);
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php

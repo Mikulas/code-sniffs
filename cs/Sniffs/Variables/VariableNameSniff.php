@@ -37,7 +37,7 @@ class cs_Sniffs_Variables_VariableNameSniff extends PHP_CodeSniffer_Standards_Ab
 			return;
 		}
 
-		$objOperator = $phpcsFile->findNext([T_WHITESPACE], ($stackPtr + 1), NULL, TRUE);
+		$objOperator = $phpcsFile->findNext(array(T_WHITESPACE), ($stackPtr + 1), NULL, TRUE);
 		if ($tokens[$objOperator]['code'] === T_OBJECT_OPERATOR)
 		{
 			// Check to see if we are using a variable from an object.

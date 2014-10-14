@@ -12,7 +12,7 @@ $cs = runPhpcs($sniff, <<<CONTENT
 CONTENT
 );
 
-Assert::same(['MissingBefore', 'MissingAfter'], $cs->rules);
+Assert::same(array('MissingBefore', 'MissingAfter'), $cs->rules);
 
 
 $cs = runPhpcs($sniff, <<<CONTENT
@@ -21,4 +21,4 @@ $cs = runPhpcs($sniff, <<<CONTENT
 CONTENT
 );
 
-Assert::same(['TooManyBefore', 'TooManyAfter'], $cs->rules);
+Assert::same(array('TooManyBefore', 'TooManyAfter'), $cs->rules);

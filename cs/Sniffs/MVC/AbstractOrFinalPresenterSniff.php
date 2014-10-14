@@ -34,7 +34,7 @@ class cs_Sniffs_MVC_AbstractOrFinalPresenterSniff implements PHP_CodeSniffer_Sni
 		while (TRUE)
 		{
 			$token = $tokens[$stackPtr - $offset];
-			if (!in_array($token['code'], [T_WHITESPACE, T_FINAL, T_ABSTRACT]))
+			if (!in_array($token['code'], array(T_WHITESPACE, T_FINAL, T_ABSTRACT)))
 			{
 				break;
 			}
@@ -49,13 +49,13 @@ class cs_Sniffs_MVC_AbstractOrFinalPresenterSniff implements PHP_CodeSniffer_Sni
 		if (isset($match['base']) && !in_array(T_ABSTRACT, $modifiers))
 		{
 			$error = 'Base presenter %s must be defined abstract';
-			$phpcsFile->addError($error, $stackPtr, 'AbstractBasePresenter', [$class]);
+			$phpcsFile->addError($error, $stackPtr, 'AbstractBasePresenter', array($class));
 
 		}
 		else if (!count($modifiers))
 		{
 			$error = 'Presenter %s must be either final or abstract';
-			$phpcsFile->addError($error, $stackPtr, 'NoPresenterModifier', [$class]);
+			$phpcsFile->addError($error, $stackPtr, 'NoPresenterModifier', array($class));
 		}
 	}
 

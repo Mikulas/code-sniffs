@@ -14,4 +14,4 @@ use B;
 CONTENT
 );
 
-Assert::same(['ExtraneousNewline'], $cs->rules);
+Assert::same(array('ExtraneousNewline'), $cs->rules);

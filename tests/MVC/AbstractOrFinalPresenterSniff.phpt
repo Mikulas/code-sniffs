@@ -11,14 +11,14 @@ $cs = runPhpcs($sniff, <<<CONTENT
 class FooPresenter extends Presenter {}
 CONTENT
 );
-Assert::same(['NoPresenterModifier'], $cs->rules);
+Assert::same(array('NoPresenterModifier'), $cs->rules);
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php
 class BasePresenter extends Presenter {}
 CONTENT
 );
-Assert::same(['AbstractBasePresenter'], $cs->rules);
+Assert::same(array('AbstractBasePresenter'), $cs->rules);
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php

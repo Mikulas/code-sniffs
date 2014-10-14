@@ -4,14 +4,14 @@ require __DIR__ . '/../bootstrap.php';
 
 use Tester\Assert;
 
-$sniff = 'cs.Debug.ClassDebuggerCall.Found';
+$sniff = 'cs.Debug.ClassDebuggerCall';
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php
 Debugger::barDump('foo');
 CONTENT
 );
-Assert::same(['Found'], $cs->rules);
+Assert::same(array('Found'), $cs->rules);
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php

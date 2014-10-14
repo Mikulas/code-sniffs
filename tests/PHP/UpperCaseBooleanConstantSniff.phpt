@@ -12,4 +12,4 @@ True || false;
 CONTENT
 );
 
-Assert::same(['Found', 'Found'], $cs->rules);
+Assert::same(array('Found', 'Found'), $cs->rules);

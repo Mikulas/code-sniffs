@@ -24,14 +24,14 @@ class cs_Sniffs_Debug_ClassDebuggerCallSniff implements PHP_CodeSniffer_Sniff
 		$method = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), NULL, TRUE);
 		$methodName = $tokens[$method]['content'];
 
-		$classes = ['debug', 'debugger'];
-		$methods = ['dump', 'bardump', 'firelog', 'timer'];
+		$classes = array('debug', 'debugger');
+		$methods = array('dump', 'bardump', 'firelog', 'timer');
 
 		if (in_array(strtolower($tokens[$className]['content']), $classes)
 			&& in_array(strToLower($methodName), $methods))
 		{
 			$error = 'Call to debug function %s::%s() should be removed';
-			$data = [$tokens[$className]['content'], $methodName];
+			$data = array($tokens[$className]['content'], $methodName);
 			$phpcsFile->addError($error, $stackPtr, 'Found', $data);
 		}
 

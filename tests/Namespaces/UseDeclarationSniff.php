@@ -16,7 +16,7 @@ use A,
 CONTENT
 );
 
-Assert::same(['MultipleDeclarations'], $cs->rules);
+Assert::same(array('MultipleDeclarations'), $cs->rules);
 
 
 $cs = runPhpcs($sniff, <<<CONTENT
@@ -27,4 +27,4 @@ class Foo {}
 CONTENT
 );
 
-Assert::same(['SpaceAfterLastUse'], $cs->rules);
+Assert::same(array('SpaceAfterLastUse'), $cs->rules);

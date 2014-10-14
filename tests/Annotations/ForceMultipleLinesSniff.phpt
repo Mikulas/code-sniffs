@@ -12,7 +12,7 @@ $cs = runPhpcs($sniff, <<<CONTENT
 class Foo {}
 CONTENT
 );
-Assert::same(['SingleLine'], $cs->rules);
+Assert::same(array('SingleLine'), $cs->rules);
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php
@@ -22,7 +22,7 @@ class Foo {
 }
 CONTENT
 );
-Assert::same(['SingleLine'], $cs->rules);
+Assert::same(array('SingleLine'), $cs->rules);
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php

@@ -17,7 +17,7 @@ class Bar
 }
 CONTENT
 );
-Assert::same(['SameLine'], $cs->rules);
+Assert::same(array('SameLine'), $cs->rules);
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php

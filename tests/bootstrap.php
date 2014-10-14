@@ -19,7 +19,8 @@ function runPhpcs($sniff, $content)
 	$standard = escapeshellarg("$root/cs");
 	$sniff = escapeshellarg($sniff);
 
-	$output = [];
+	$output = array();
+
 	exec("$phpcs --standard=$standard --report=json $file --sniffs=$sniff", $output);
 	$raw = implode($output);
 
@@ -30,8 +31,8 @@ function runPhpcs($sniff, $content)
 		exit(1);
 	}
 
-	$messages = [];
-	$rules = [];
+	$messages = array();
+	$rules = array();
 	foreach ($data->files as $file)
 	{
 		foreach ($file->messages as $message)
@@ -42,10 +43,10 @@ function runPhpcs($sniff, $content)
 		}
 	}
 
-	return (object) [
+	return (object) array(
 		'warnings' => $data->totals->warnings,
 		'errors' => $data->totals->errors,
 		'rules' => $rules,
 		'messages' => $messages,
-	];
+	);
 }
