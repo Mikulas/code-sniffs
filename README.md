@@ -1,6 +1,9 @@
 Custom CodeSniffer rules
 ========================
 
+[![Build Status](https://travis-ci.org/Mikulas/code-sniffs.svg?branch=master)](https://travis-ci.org/Mikulas/code-sniffs)
+
+
 Annotations
 -----------
 
