@@ -49,7 +49,7 @@ class cs_Sniffs_Strings_ConcatenationSpacingSniff implements PHP_CodeSniffer_Sni
 			if ($spaces > 1)
 			{
 				$message = 'Expected 1 space after . string concatenation, but %d found';
-				$data = [$spaces];
+				$data = array($spaces);
 				$phpcsFile->addError($message, $stackPtr, 'TooManyAfter', $data);
 			}
 		}

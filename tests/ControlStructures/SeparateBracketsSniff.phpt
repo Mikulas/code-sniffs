@@ -4,7 +4,7 @@ require __DIR__ . '/../bootstrap.php';
 
 use Tester\Assert;
 
-$sniff = 'cs.ControlStructures.SeparateBrackets.MissingNewline';
+$sniff = 'cs.ControlStructures.SeparateBrackets';
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php

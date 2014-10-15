@@ -54,7 +54,7 @@ class cs_Sniffs_PHP_UpperCaseNullConstantSniff implements PHP_CodeSniffer_Sniff
 		if (strtoupper($keyword) !== $keyword)
 		{
 			$error = 'NULL must be uppercase; expected "%s" but found "%s"';
-			$data  = [strtoupper($keyword), $keyword];
+			$data  = array(strtoupper($keyword), $keyword);
 			$phpcsFile->addError($error, $stackPtr, 'Found', $data);
 		}
 

@@ -112,7 +112,7 @@ class cs_Sniffs_ControlStructures_SeparateBracketsSniff implements PHP_CodeSniff
 				$error .= ' (...)';
 			}
 			$error .= ' {"';
-			$data = [$tokens[$stackPtr]['content']];
+			$data = array($tokens[$stackPtr]['content']);
 			$phpcsFile->addError($error, $blockOrStatement - $return, 'MissingNewline', $data);
 		}
 	}

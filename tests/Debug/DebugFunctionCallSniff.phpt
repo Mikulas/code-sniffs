@@ -4,7 +4,7 @@ require __DIR__ . '/../bootstrap.php';
 
 use Tester\Assert;
 
-$sniff = 'cs.Debug.DebugFunctionCall.Found';
+$sniff = 'cs.Debug.DebugFunctionCall';
 
 $cs = runPhpcs($sniff, <<<CONTENT
 <?php
